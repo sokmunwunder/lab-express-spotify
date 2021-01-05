@@ -1,0 +1,35 @@
+body {
+  font-family: sans-serif;
+  background-image: url('../images/spotify-background.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form-design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 50px 100px;
+  margin: 400px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.input-design {
+  background-color: white;
+  border-style: solid 1px black;
+  font-size: 12px;
+  padding: 10px 100px;
+
+  margin: 5px;
+}
+
+.button-design {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  border-style: none;
+
+  padding: 10px;
+  margin: 5px;
+}

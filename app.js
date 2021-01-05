@@ -1,6 +1,7 @@
 //require('dotenv').config();
 
 const dotenv = require('dotenv');
+const { response } = require('express');
 dotenv.config();
 
 const express = require('express');
@@ -31,6 +32,16 @@ spotifyApi
   );
 
 // Our routes go here:
+app.get('/', (req, res) => {
+  res.render('home');
+});
+
+app.get('/search', (req, res) => {
+  const searchQuery = request.query.q;
+  response.render('home', {
+    searchQuery: searchQuery
+  });
+});
 
 app.listen(3000, () =>
   console.log('My Spotify project running on port 3000 🎧 🥁 🎸 🔊')
