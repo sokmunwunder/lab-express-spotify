@@ -37,16 +37,18 @@ app.get('/', (req, res) => {
 });
 
 app.get('/artist-search', (req, res) => {
-  const searchQuery = `http://api.spotify.com/v1/search?q -H "Authorization: Bearer ${spotifyApi.clientSecret}"`;
+  //const searchQuery = `http://api.spotify.com/v1/search?q -H "Authorization: Bearer ${spotifyApi.clientSecret}"`;
+  const searchQuery = req.query.q;
   spotifyApi
     .searchArtists(searchQuery)
     .then((data) => {
       console.log('The received data from the API:', data.body);
-      const results = data.body;
-      const artists = data.body.artists;
-      res.render('results', {
-        artists: data.body.artists.items,
-        images: data.body.artists.items.images
+      //const results = data.body;
+      const items = data.body.artists.items;
+
+      console.log(items);
+      res.render('artists-results', {
+        records: items
       });
     })
     .catch((err) =>

@@ -1,8 +1,11 @@
-body {
-  font-family: sans-serif;
+.homepage {
   background-image: url('../images/spotify-background.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+body {
+  font-family: sans-serif;
 }
 
 .form-design {
