@@ -37,14 +37,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/artist-search', (req, res) => {
-  //const searchQuery = request.query.q;
-  //const apiURL = `https://api.spotify.com/v1/search=${searchQuery}`;
-  //const apiURL = `"https://api.spotify.com/v1/search?q=${searchQuery}&type=artist" -H "Authorisation: Bearer ${87a40b43f94d4bb8a2ad84121c036e01}"`;
-  //const apiURL = `http://api.spotify.com/v1/search?q=${searchQuery}
-  //const searchQuery = `http://api.spotify.com/v1/search?q`;
-  //const searchQuery = `http://api.spotify.com/v1/search?q -H "Authorization: Bearer {87a40b43f94d4bb8a2ad84121c036e01}"`;
-
-  //const searchQuery = `http://api.spotify.com/v1/search?q -H "Authorization: Bearer ${spotifyApi.clientSecret}"`;
   const searchQuery = `http://api.spotify.com/v1/search?q -H "Authorization: Bearer ${spotifyApi.clientSecret}"`;
   spotifyApi
     .searchArtists(searchQuery)
@@ -52,16 +44,10 @@ app.get('/artist-search', (req, res) => {
       console.log('The received data from the API:', data.body);
       const results = data.body;
       const artists = data.body.artists;
-
-      response.render('results', {
+      res.render('results', {
         artists: data.body.artists.items,
         images: data.body.artists.items.images
       });
-      /*response.render('artist-search-resutls)   */
-      /*response.render('artist-search-results', {
-        artists: data.body.artist.album,
-        image: data.artist.image
-      });*/
     })
     .catch((err) =>
       console.log('The error while searching artists occurred: ', err)
@@ -71,3 +57,12 @@ app.get('/artist-search', (req, res) => {
 app.listen(3000, () =>
   console.log('My Spotify project running on port 3000 🎧 🥁 🎸 🔊')
 );
+
+//const searchQuery = request.query.q;
+//const apiURL = `https://api.spotify.com/v1/search=${searchQuery}`;
+//const apiURL = `"https://api.spotify.com/v1/search?q=${searchQuery}&type=artist" -H "Authorisation: Bearer ${87a40b43f94d4bb8a2ad84121c036e01}"`;
+//const apiURL = `http://api.spotify.com/v1/search?q=${searchQuery}
+//const searchQuery = `http://api.spotify.com/v1/search?q`;
+//const searchQuery = `http://api.spotify.com/v1/search?q -H "Authorization: Bearer {87a40b43f94d4bb8a2ad84121c036e01}"`;
+
+//const searchQuery = `http://api.spotify.com/v1/search?q -H "Authorization: Bearer ${spotifyApi.clientSecret}"`;
