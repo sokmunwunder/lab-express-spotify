@@ -41,7 +41,8 @@ app.get('/artist-search', (req, res) => {
   //const apiURL = `https://api.spotify.com/v1/search=${searchQuery}`;
   //const apiURL = `"https://api.spotify.com/v1/search?q=${searchQuery}&type=artist" -H "Authorisation: Bearer ${87a40b43f94d4bb8a2ad84121c036e01}"`;
   //const apiURL = `http://api.spotify.com/v1/search?q=${searchQuery}
-  const searchQuery = `http://api.spotify.com/v1/search?q`;
+  //const searchQuery = `http://api.spotify.com/v1/search?q`;
+  const searchQuery = `http://api.spotify.com/v1/search?q -H "Authorization: Bearer {87a40b43f94d4bb8a2ad84121c036e01}"`;
   spotifyApi
     .searchArtists(searchQuery)
     .then((data) => {
