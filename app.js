@@ -36,11 +36,24 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
-app.get('/search', (req, res) => {
-  const searchQuery = request.query.q;
-  response.render('home', {
-    searchQuery: searchQuery
-  });
+app.get('/artist-search', (req, res) => {
+  //const searchQuery = request.query.q;
+  //const apiURL = `https://api.spotify.com/v1/search=${searchQuery}`;
+  //const apiURL = `"https://api.spotify.com/v1/search?q=${searchQuery}&type=artist" -H "Authorisation: Bearer ${87a40b43f94d4bb8a2ad84121c036e01}"`;
+  //const apiURL = `http://api.spotify.com/v1/search?q=${searchQuery}
+  const searchQuery = `http://api.spotify.com/v1/search?q`;
+  spotifyApi
+    .searchArtists(searchQuery)
+    .then((data) => {
+      console.log('The received data from the API:', data.body);
+      /*response.render('artist-search-results', {
+        artists: data.body.artist.album,
+        image: data.artist.image
+      });*/
+    })
+    .catch((err) =>
+      console.log('The error while searching artists occurred: ', err)
+    );
 });
 
 app.listen(3000, () =>
