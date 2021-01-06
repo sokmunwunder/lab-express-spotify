@@ -42,11 +42,22 @@ app.get('/artist-search', (req, res) => {
   //const apiURL = `"https://api.spotify.com/v1/search?q=${searchQuery}&type=artist" -H "Authorisation: Bearer ${87a40b43f94d4bb8a2ad84121c036e01}"`;
   //const apiURL = `http://api.spotify.com/v1/search?q=${searchQuery}
   //const searchQuery = `http://api.spotify.com/v1/search?q`;
-  const searchQuery = `http://api.spotify.com/v1/search?q -H "Authorization: Bearer {87a40b43f94d4bb8a2ad84121c036e01}"`;
+  //const searchQuery = `http://api.spotify.com/v1/search?q -H "Authorization: Bearer {87a40b43f94d4bb8a2ad84121c036e01}"`;
+
+  //const searchQuery = `http://api.spotify.com/v1/search?q -H "Authorization: Bearer ${spotifyApi.clientSecret}"`;
+  const searchQuery = `http://api.spotify.com/v1/search?q -H "Authorization: Bearer ${spotifyApi.clientSecret}"`;
   spotifyApi
     .searchArtists(searchQuery)
     .then((data) => {
       console.log('The received data from the API:', data.body);
+      const results = data.body;
+      const artists = data.body.artists;
+
+      response.render('results', {
+        artists: data.body.artists.items,
+        images: data.body.artists.items.images
+      });
+      /*response.render('artist-search-resutls)   */
       /*response.render('artist-search-results', {
         artists: data.body.artist.album,
         image: data.artist.image
