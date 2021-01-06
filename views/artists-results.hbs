@@ -1,9 +1,13 @@
-<div>
-    {{#each records}}
-<h2>{{name}}</h2>
-<button>View Albums</button>
-<img src="{{images.[0].url}}" alt="">
-{{/each}}
+<section class="search-results">
+{{#each records}}
+<h5>{{name}}</h5>
+<div class="single-result">
+    <img src="{{images.[0].url}}" alt="Poster Image">
 </div>
+<div><button>View Albums</button></div>
+
+{{/each}}
+
+</section>
 
 
