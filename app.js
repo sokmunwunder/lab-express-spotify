@@ -71,12 +71,16 @@ app.get('/albums/:artistId', (req, res, next) => {
     );
 });
 
-app.get('/albums/artistId/:albumId', (req, res, next) => {
-  const albId = req.params.albumId;
+app.get('/albums/artistId/:id', (req, res, next) => {
+  const id = req.params.id;
   spotifyApi
-    .getAlbumTracks(albId)
+    .getAlbumTracks(id)
     .then((data) => {
       console.log('The received tracks from the API:', data.body);
+      const preview = data.body.items;
+      res.render('tracks', {
+        tracks: preview
+      });
     })
     .catch((err) =>
       console.log('The error while getting album tracks occurred:', err)
