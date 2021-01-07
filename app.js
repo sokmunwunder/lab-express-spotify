@@ -64,11 +64,22 @@ app.get('/albums/:artistId', (req, res, next) => {
 
       res.render('albums', {
         albums: items
-        /*artistName: artistName*/
       });
     })
     .catch((err) =>
       console.log('The error while getting albums occured: ', err)
+    );
+});
+
+app.get('/albums/artistId/:albumId', (req, res, next) => {
+  const albId = req.params.albumId;
+  spotifyApi
+    .getAlbumTracks(albId)
+    .then((data) => {
+      console.log('The received tracks from the API:', data.body);
+    })
+    .catch((err) =>
+      console.log('The error while getting album tracks occurred:', err)
     );
 });
 
