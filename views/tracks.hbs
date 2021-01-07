@@ -1,9 +1,8 @@
-<h2>Testing</h2>
+<h2>Track Previews</h2>
 
 <div>
     {{#each tracks}}
-    <ul> {{preview_url}}</ul>
-   
+    <ul> <audio id="playback" src="{{preview_url}}" type="audio/mpeg" controls></audio></ul>
     {{/each}}
 </div> 
 
