@@ -1,5 +1,10 @@
 
 <div>
+    <h3>Albums for: {{albums.[0].artists.[0].name}}</h3>
+</div>
+
+
+<div>
     {{#each albums }}
 <h3>{{name}}</h3>
 <img src="{{ images.[0].url}}" alt="Cover Image"/>
@@ -9,3 +14,10 @@
 </div>
 
 
+
+<!-->
+<div>
+    {{#each artistName}}
+<h3>Albums for: {{artistName.name}}</h3>
+{{/each}}
+</div>-->

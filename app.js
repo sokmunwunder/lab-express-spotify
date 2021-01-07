@@ -61,8 +61,10 @@ app.get('/albums/:artistId', (req, res, next) => {
     .then((data) => {
       console.log('The received albums from the API:', data.body);
       const items = data.body.items;
+
       res.render('albums', {
         albums: items
+        /*artistName: artistName*/
       });
     })
     .catch((err) =>
