@@ -77,9 +77,9 @@ app.get('/albums/artistId/:id', (req, res, next) => {
     .getAlbumTracks(id)
     .then((data) => {
       console.log('The received tracks from the API:', data.body);
-      const preview = data.body.items;
+      const trackList = data.body.items;
       res.render('tracks', {
-        tracks: preview
+        tracks: trackList
       });
     })
     .catch((err) =>

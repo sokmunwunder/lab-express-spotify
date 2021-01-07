@@ -2,11 +2,10 @@
 
 <div>
     {{#each tracks}}
-    <audio 
-    src="{{preview_url}}">
-    </audio>
+    <ul> {{preview_url}}</ul>
+   
     {{/each}}
-</div>
+</div> 
 
 <!--
 <div>
@@ -16,4 +15,10 @@
 <a href="/albums/artistId/{{albId}}">View Tracks</a>
 <p>{{release_date}}</p>
 {{/each}}
-</div>-->
+</div>
+
+<audio 
+    src="{{preview_url}}">
+    </audio>
+<audio src="{{preview_url}}"></audio>
+-->
