@@ -4,10 +4,16 @@
 <div class="single-result">
     <img src="{{images.[0].url}}" alt="Poster Image">
 </div>
-<div><button>View Albums</button></div>
+<div>
+  <a href="/albums/{{id}}">View Album</a>
+    </div>
 
 {{/each}}
 
 </section>
 
 
+
+ <!--<form action="/albums/:artistId" method="GET">
+       <button>View Albums</button>
+   </form>-->

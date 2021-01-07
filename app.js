@@ -59,10 +59,10 @@ app.get('/albums/:artistId', (req, res, next) => {
   spotifyApi
     .getArtistAlbums(id)
     .then((data) => {
-      console.log('The received album from the API:', data.body.id);
-      const albumName = data.body.name;
+      console.log('The received album from the API:', data.body.items);
+      /*const albumName = data.body.name;
       console.log(albumName);
-      /* res.render('albums', {
+      res.render('albums', {
       name: albumName
     });*/
     })
