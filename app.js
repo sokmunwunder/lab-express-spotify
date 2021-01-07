@@ -59,15 +59,14 @@ app.get('/albums/:artistId', (req, res, next) => {
   spotifyApi
     .getArtistAlbums(id)
     .then((data) => {
-      console.log('The received album from the API:', data.body.items);
-      /*const albumName = data.body.name;
-      console.log(albumName);
+      console.log('The received albums from the API:', data.body.items);
+      const items = data.body.items;
       res.render('albums', {
-      name: albumName
-    });*/
+        albums: items
+      });
     })
     .catch((err) =>
-      console.log('The error while getting album occured: ', err)
+      console.log('The error while getting albums occured: ', err)
     );
 });
 

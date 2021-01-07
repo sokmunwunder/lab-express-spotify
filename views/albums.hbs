@@ -1,5 +1,11 @@
 <div>
-<h3>{{albumName}}</h3>
+    {{#each albums }}
+<h3>{{name}}</h3>
 <img src="{{ images.[0].url}}" alt="Cover Image"/>
 <button class="button-design">View Tracks</button>
+<p>{{release_date}}</p>
+{{/each}}
 </div>
+
+
+<!--<img src="{{ images.[0].url}}" alt="Cover Image"/>-->
